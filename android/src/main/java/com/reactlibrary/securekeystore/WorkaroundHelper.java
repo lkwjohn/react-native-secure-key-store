@@ -21,7 +21,10 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
@@ -32,7 +35,8 @@ public class WorkaroundHelper {
     private static String SHARED_PREF_DEFAULT_KEYPAIR_GEN = "DEFAULT_KEYPAIR_GEN";
 
     private static String ERROR_GMS_CERT = "can't generate certificate";
-    private static String MODEL_OPPO = "X9079";
+    private static List<String> MODELS = new ArrayList<String>(Arrays.asList("X9079","OPPO A59m","F1f"));
+    private static List<String> MANUFACTURERS = new ArrayList<String>(Arrays.asList("oppo"));
 
     public static X509Certificate buildX509Certificate(String alias, Calendar notBefore, Calendar notAfter, PrivateKey privKey, PublicKey pubKey) throws Exception {
         SecureRandom random = new SecureRandom();
@@ -65,7 +69,7 @@ public class WorkaroundHelper {
     }
 
     public static boolean shouldEnableWorkaround(Exception e) {
-        return e.getMessage().toLowerCase().contains(ERROR_GMS_CERT) && Build.MODEL.equals(MODEL_OPPO);
+        return e.getMessage().toLowerCase().contains(ERROR_GMS_CERT) && MANUFACTURERS.contains(Build.MANUFACTURER.toLowerCase()) ? MODELS.contains(Build.MODEL) : false;
     }
 
     public static void enableWorkaround(Context context) {
