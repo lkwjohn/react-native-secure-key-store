@@ -35,7 +35,7 @@ public class WorkaroundHelper {
     private static String SHARED_PREF_DEFAULT_KEYPAIR_GEN = "DEFAULT_KEYPAIR_GEN";
 
     private static String ERROR_GMS_CERT = "can't generate certificate";
-    private static List<String> MODELS = new ArrayList<String>(Arrays.asList("X9079","OPPO A59m","F1f"));
+    private static List<String> MODELS = new ArrayList<String>(Arrays.asList("X9079","OPPO A59m","F1f", "X9009", "OPPO R9", "A1601"));
     private static List<String> MANUFACTURERS = new ArrayList<String>(Arrays.asList("oppo"));
 
     public static X509Certificate buildX509Certificate(String alias, Calendar notBefore, Calendar notAfter, PrivateKey privKey, PublicKey pubKey) throws Exception {
