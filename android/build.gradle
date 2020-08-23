@@ -44,4 +44,8 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
+    compile 'com.madgag.spongycastle:core:1.56.0.0'
+    compile 'com.madgag.spongycastle:prov:1.56.0.0'
+    compile 'com.madgag.spongycastle:bcpkix-jdk15on:1.56.0.0'
+    compile 'com.madgag.spongycastle:bcpg-jdk15on:1.56.0.0'
 }
