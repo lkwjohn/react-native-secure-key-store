@@ -70,7 +70,7 @@ public class RNSecureKeyStoreModule extends ReactContextBaseJavaModule {
     }
   }
 
-  private PublicKey getOrCreatePublicKey(String alias) throws GeneralSecurityException, IOException {
+  private PublicKey getOrCreatePublicKey(String alias) throws Exception {
     Locale currentLocale = Locale.getDefault();
     Locale.setDefault(Locale.ENGLISH);
     KeyStore keyStore = KeyStore.getInstance(getKeyStore());
